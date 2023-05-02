@@ -40,16 +40,25 @@ public class AlexanderGrahamBell
             response = "Say something, please.";
         }
 
-        else if (findKeyword(statement, "no") >= 0)
+        else if (findKeyword(statement, "your name") >= 0)
         {
-            response = "Why so negative?";
+            response = "My name is Alexander Graham Bell.";
         }
-        else if (findKeyword(statement, "mother") >= 0
-                || findKeyword(statement, "father") >= 0
-                || findKeyword(statement, "sister") >= 0
-                || findKeyword(statement, "brother") >= 0)
+        else if (findKeyword(statement, "famous for") >= 0)
         {
-            response = "Tell me more about your family.";
+            response = "I am known for my invention of the telephone.";
+        }
+        else if (findKeyword(statement, "you married") >= 0)
+        {
+            response = "I was married to Mabel Gardiner Hubbard.";
+        }
+        else if (findKeyword(statement, "children") >= 0)
+        {
+            response = "I had four children.";
+        }
+        else if (findKeyword(statement, "you married") >= 0)
+        {
+            response = "I was married to Mabel Gardiner Hubbard.";
         }
 
         // Responses which require transformations
