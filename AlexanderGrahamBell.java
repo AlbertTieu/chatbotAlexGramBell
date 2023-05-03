@@ -40,10 +40,6 @@ public class AlexanderGrahamBell
             response = "Say something, please.";
         }
 
-        else if (findKeyword(statement, "your name") >= 0)
-        {
-            response = "My name is Alexander Graham Bell.";
-        }
         else if (findKeyword(statement, "famous for") >= 0)
         {
             response = "I am known for my invention of the telephone.";
@@ -77,13 +73,14 @@ public class AlexanderGrahamBell
 
             // Look for a two word (you <something> me)
             // pattern
-            int psn = findKeyword(statement, "you", 0);
+            int psn = findKeyword(statement, "your", 0);
 
             if (psn >= 0
-                    && findKeyword(statement, "me", psn) >= 0)
+                    && findKeyword(statement, "name", psn) >= 0)
             {
-                response = transformYouMeStatement(statement);
+                response = "My name is Alexander Graham Bell.";
             }
+            
             else
             {
                 //  Part of student solution
@@ -98,7 +95,14 @@ public class AlexanderGrahamBell
                 }
                 else
                 {
-                    response = getRandomResponse();
+                    psn = findKeyword(statement, "their", 0);
+                    if (psn >= 0 && findKeyword(statement, "names", psn) >= 0)
+                    {
+                        response = "Their names are Elsie May Bell, Marian Hubbard Bell, Edward Bell, and Robert Bell.";
+                    } else {
+                        response = getRandomResponse();
+                    }
+                    
                 }
             }
         }
@@ -278,8 +282,7 @@ public class AlexanderGrahamBell
             "You don't say.",
             "Oh really?",
             "That's nice.",
-            "Is it though?",
-            "cool"
+            "Is it though?"
     };
     
 }
