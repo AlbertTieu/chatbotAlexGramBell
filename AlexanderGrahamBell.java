@@ -40,11 +40,12 @@ public class AlexanderGrahamBell
             response = "Say something, please.";
         }
 
-        else if (findKeyword(statement, "famous for") >= 0)
+        else if (findKeyword(statement, "famous") >= 0
+                    || findKeyword(statement, "known") >= 0)
         {
             response = "I am known for my invention of the telephone.";
         }
-        else if (findKeyword(statement, "you married") >= 0)
+        else if (findKeyword(statement, "married") >= 0)
         {
             response = "I was married to Mabel Gardiner Hubbard.";
         }
@@ -52,7 +53,7 @@ public class AlexanderGrahamBell
         {
             response = "I had four children.";
         }
-        else if (findKeyword(statement, "you married") >= 0)
+        else if (findKeyword(statement, "ssadasdasd") >= 0)
         {
             response = "I was married to Mabel Gardiner Hubbard.";
         }
@@ -69,12 +70,8 @@ public class AlexanderGrahamBell
         }
 
         else
-        {
-
-            // Look for a two word (you <something> me)
-            // pattern
-            int psn = findKeyword(statement, "your", 0);
-
+        {   
+            int psn = 0;
             if (psn >= 0
                     && findKeyword(statement, "name", psn) >= 0)
             {
@@ -95,12 +92,56 @@ public class AlexanderGrahamBell
                 }
                 else
                 {
-                    psn = findKeyword(statement, "their", 0);
-                    if (psn >= 0 && findKeyword(statement, "names", psn) >= 0)
+                    psn = findKeyword(statement, "where", 0);
+                    if (psn >= 0 && findKeyword(statement, "born", psn) >= 0)
                     {
-                        response = "Their names are Elsie May Bell, Marian Hubbard Bell, Edward Bell, and Robert Bell.";
-                    } else {
-                        response = getRandomResponse();
+                        response = "I was born in Edinburgh, Scotland.";
+                    } else if (psn >= 0 && findKeyword (statement, "live", psn) >= 0) {
+                        response = "I used to live in the peninsula of Beinn Bhreagh.";
+                    } else if (psn >= 0 && findKeyword (statement, "die", psn) >= 0) {
+                        response = "I died in the peninsula of Beinn Bhreagh.";
+                    }
+                    else
+                    {
+                    psn = findKeyword(statement, "when", 0);
+                    if (psn >= 0 && findKeyword(statement, "die", psn) >= 0)
+                    {
+                        response = "I died August 2, 1922.";
+                    } else if (psn >= 0 && findKeyword (statement, "born", psn) >= 0) {
+                        response = "I was born on March 3, 1847";
+                    }
+                    else
+                    {
+                    psn = findKeyword(statement, "who", 0);
+                    if (psn >= 0 && findKeyword(statement, "you", psn) >= 0)
+                    {
+                        response = "I am Alexander Graham Bell.";
+                    }
+                    else
+                    {
+                    psn = findKeyword(statement, "how", 0);
+                    if (psn >= 0 && findKeyword(statement, "die", psn) >= 0)
+                    {
+                        response = "I died due to complications from diabetes.";
+                    } else if (psn >= 0 && findKeyword(statement, "are you", psn) >= 0) {
+                        response = "I'm doing well, thank you.";
+                    }
+                    else
+                    {
+                    psn = findKeyword(statement, "what", 0);
+                    if (psn >= 0 && findKeyword(statement, "do", psn) >= 0)
+                    {
+                        response = "I made the telephone.";
+                    } else if (psn >= 0 && findKeyword(statement, "are you", psn) >= 0) {
+                        response = "I am an alien.";
+                    }
+                    else
+                    {
+                        response = getRandomResponse() + " Also please check for typos.";
+                    }
+                    }
+                    }
+                    }
                     }
                     
                 }
@@ -276,13 +317,10 @@ public class AlexanderGrahamBell
         return randomResponses [r.nextInt(randomResponses.length)];
     }
     
-    private String [] randomResponses = {"Interesting, tell me more",
-            "Hmmm.",
-            "Do you really think so?",
-            "You don't say.",
-            "Oh really?",
-            "That's nice.",
-            "Is it though?"
+    private String [] randomResponses = {
+            "Please ask me something I can answer.",
+            "I don't understand.",
+            "Ask a question, please."
     };
     
 }
