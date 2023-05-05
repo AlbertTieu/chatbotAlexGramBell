@@ -22,7 +22,7 @@ public class AlexanderGrahamBell
      */    
     public String getGreeting()
     {
-        return "Hello, let's talk.";
+        return "I am a chatbot emulating Alexander Graham Bell. Ask me things.";
     }
     
     /**
@@ -45,17 +45,13 @@ public class AlexanderGrahamBell
         {
             response = "I am known for my invention of the telephone.";
         }
-        else if (findKeyword(statement, "married") >= 0)
+        else if (findKeyword(statement, "married") >= 0 || findKeyword(statement, "spouse") >= 0)
         {
             response = "I was married to Mabel Gardiner Hubbard.";
         }
         else if (findKeyword(statement, "children") >= 0)
         {
             response = "I had four children.";
-        }
-        else if (findKeyword(statement, "ssadasdasd") >= 0)
-        {
-            response = "I was married to Mabel Gardiner Hubbard.";
         }
 
         // Responses which require transformations
@@ -93,7 +89,8 @@ public class AlexanderGrahamBell
                 else
                 {
                     psn = findKeyword(statement, "where", 0);
-                    if (psn >= 0 && findKeyword(statement, "born", psn) >= 0)
+                    if (psn >= 0 && findKeyword(statement, "born", psn) >= 0
+                            || psn >= 0 && findKeyword (statement, "from", psn) >= 0)
                     {
                         response = "I was born in Edinburgh, Scotland.";
                     } else if (psn >= 0 && findKeyword (statement, "live", psn) >= 0) {

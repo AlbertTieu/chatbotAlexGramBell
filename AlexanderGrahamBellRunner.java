@@ -14,7 +14,8 @@ public class AlexanderGrahamBellRunner
      * Create a Magpie, give it user input, and print its replies.
      */
     public static void main(String[] args)
-    {
+  
+{
         AlexanderGrahamBell alexBell = new AlexanderGrahamBell();
         
         System.out.println (alexBell.getGreeting());
