@@ -131,9 +131,9 @@ public class AlexanderGrahamBell
                     psn = findKeyword(statement, "what", 0);
                     if (psn >= 0 && findKeyword(statement, "do", psn) >= 0)
                     {
-                        response = "I made the telephone.";
+                        response = "I made the telephone after my work with the deaf and human speech.";
                     } else if (psn >= 0 && findKeyword(statement, "are you", psn) >= 0) {
-                        response = "I am an alien.";
+                        response = "I am the person who invented the telephone.";
                     }
                     else
                     {
