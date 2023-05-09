@@ -22,12 +22,16 @@ public class AlexanderGrahamBellRunner
         Scanner in = new Scanner (System.in);
         String statement = in.nextLine();
         
-        while (!statement.equals("Bye"))
+        while (!statement.toLowerCase().trim().equals("bye"))
 
         {
             System.out.println (alexBell.getResponse(statement));
             statement = in.nextLine();
+            
         }
+        if (statement.toLowerCase().trim().equals("bye")) {
+                System.out.println ("Goodbye.");
+            }   
     }
 
 }

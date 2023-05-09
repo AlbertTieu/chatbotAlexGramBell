@@ -45,24 +45,19 @@ public class AlexanderGrahamBell
         {
             response = "I am known for my invention of the telephone.";
         }
-        else if (findKeyword(statement, "married") >= 0 || findKeyword(statement, "spouse") >= 0)
+        else if (findKeyword(statement,"age") >= 0)
+        {
+            response = "I died at 75.";
+        }
+        else if (findKeyword(statement, "married") >= 0 ||
+                    findKeyword(statement, "spouse") >= 0 ||
+                    findKeyword(statement, "wife") >= 0)
         {
             response = "I was married to Mabel Gardiner Hubbard.";
         }
         else if (findKeyword(statement, "children") >= 0)
         {
             response = "I had four children.";
-        }
-
-        // Responses which require transformations
-        else if (findKeyword(statement, "I want to", 0) >= 0)
-        {
-            response = transformIWantToStatement(statement);
-        }
-        //  Part of student solution
-        else if (findKeyword(statement, "I want", 0) >= 0)
-        {
-            response = transformIWantStatement(statement);
         }
 
         else
@@ -114,14 +109,15 @@ public class AlexanderGrahamBell
                     {
                         response = "I am Alexander Graham Bell.";
                     }
-                    else
-                    {
+                    else {
                     psn = findKeyword(statement, "how", 0);
                     if (psn >= 0 && findKeyword(statement, "die", psn) >= 0)
                     {
                         response = "I died due to complications from diabetes.";
                     } else if (psn >= 0 && findKeyword(statement, "are you", psn) >= 0) {
                         response = "I'm doing well, thank you.";
+                    } else if (psn >= 0 && findKeyword(statement, "old", psn) >= 0) {
+                        response = "I died at 75.";
                     }
                     else
                     {
