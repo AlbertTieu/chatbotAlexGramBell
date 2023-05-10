@@ -1,6 +1,4 @@
- 
-
-import java.util.Random;
+ import java.util.Random;
 
 /**
  * A program to carry on conversations with a human user.
@@ -22,7 +20,7 @@ public class AlexanderGrahamBell
      */    
     public String getGreeting()
     {
-        return "I am a chatbot emulating Alexander Graham Bell. Ask me things.";
+        return "Ask questions about me.";
     }
     
     /**
@@ -101,6 +99,8 @@ public class AlexanderGrahamBell
                         response = "I died August 2, 1922.";
                     } else if (psn >= 0 && findKeyword (statement, "born", psn) >= 0) {
                         response = "I was born on March 3, 1847";
+                    } else if (psn >= 0 && findKeyword (statement, "marry", psn) >= 0) {
+                        response = "I married my wife on July 11, 1877.";
                     }
                     else
                     {
@@ -114,10 +114,11 @@ public class AlexanderGrahamBell
                     if (psn >= 0 && findKeyword(statement, "die", psn) >= 0)
                     {
                         response = "I died due to complications from diabetes.";
+                    } else if (psn >= 0 && findKeyword(statement, "old", psn) >= 0) {
+                        
+                        response = "I died at 75.";
                     } else if (psn >= 0 && findKeyword(statement, "are you", psn) >= 0) {
                         response = "I'm doing well, thank you.";
-                    } else if (psn >= 0 && findKeyword(statement, "old", psn) >= 0) {
-                        response = "I died at 75.";
                     }
                     else
                     {
@@ -127,10 +128,22 @@ public class AlexanderGrahamBell
                         response = "I made the telephone after my work with the deaf and human speech.";
                     } else if (psn >= 0 && findKeyword(statement, "are you", psn) >= 0) {
                         response = "I am the person who invented the telephone.";
+                    } else if (psn >= 0 && findKeyword(statement, "names", psn) >= 0) {
+                        response = "Their names were Elise, Marian, Edward, and Robert.";
+                    }
+                    else
+                    {
+                    psn = findKeyword(statement, "were", 0);
+                    if (psn >= 0 && findKeyword(statement, "married", psn) >= 0)
+                    {
+                        response = "I was married to Mabel Gardiner Hubbard.";
+                    } else if (psn >= 0 && findKeyword(statement, "?aDwads", psn) >= 0) {
+                        response = "I am the person who invented the telephone.";
                     }
                     else
                     {
                         response = getRandomResponse() + " Also please check for typos.";
+                    }
                     }
                     }
                     }
